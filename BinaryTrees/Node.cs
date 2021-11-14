@@ -2,21 +2,21 @@
 {
     public class Node
     {
-        public int value;
-        public Node leftChild;
-        public Node rightChild;
+        public int Value;
+        public Node LeftChild;
+        public Node RightChild;
 
         public Node(int value)
         {
-            this.value = value;
+            this.Value = value;
 
-            leftChild = null;
-            rightChild = null;
+            LeftChild = null;
+            RightChild = null;
         }
 
         public override string ToString()
         {
-            return this.value.ToString();
+            return this.Value.ToString();
         }
     }
 }

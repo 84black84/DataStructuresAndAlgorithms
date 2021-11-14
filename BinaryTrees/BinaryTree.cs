@@ -4,50 +4,55 @@
 
     public class BinaryTree
     {
-        public Node root;
+        public Node Root;
 
         public BinaryTree()
         {
-            this.root = null;
+            this.Root = null;
         }
 
-        public void InOrderTraversal(Node node)
+        private void InOrderTraversal(Node node)
         {
             if (node == null)
             {
                 return;
             }
 
-            this.InOrderTraversal(node.leftChild);
-            Console.Write(node.value + " ");
-            this.InOrderTraversal(node.rightChild);
+            this.InOrderTraversal(node.LeftChild);
+            Console.Write(node.Value + " ");
+            this.InOrderTraversal(node.RightChild);
         }
 
-        public void InOrderTraversal() { 
-            this.InOrderTraversal(root);
+        /// <summary>
+        /// The result should be ->
+        /// 20 33 30 30 40 60 60 70 125 90
+        /// </summary>
+        public void StartOrderTraversal() { 
+            this.InOrderTraversal(this.Root);
         }
 
-        public static void RunInOrderTraversal()
+        public static BinaryTree PrepareBinaryTree()
         {
-            BinaryTree binaryTree = new BinaryTree();
-            binaryTree.root = new Node(60)
+            BinaryTree binaryTree = new BinaryTree
             {
-                leftChild = new Node(30),
-                rightChild = new Node(125)
+                Root = new Node(60)
+                {
+                    LeftChild = new Node(30),
+                    RightChild = new Node(125)
+                }
             };
 
-            binaryTree.root.leftChild.leftChild = new Node(33);
-            binaryTree.root.leftChild.rightChild = new Node(40);
+            binaryTree.Root.LeftChild.LeftChild = new Node(33);
+            binaryTree.Root.LeftChild.RightChild = new Node(40);
 
-            binaryTree.root.rightChild.leftChild = new Node(70);
-            binaryTree.root.rightChild.rightChild = new Node(90);
+            binaryTree.Root.RightChild.LeftChild = new Node(70);
+            binaryTree.Root.RightChild.RightChild = new Node(90);
 
-            binaryTree.root.leftChild.leftChild.leftChild = new Node(20);
-            binaryTree.root.leftChild.leftChild.rightChild = new Node(30);
+            binaryTree.Root.LeftChild.LeftChild.LeftChild = new Node(20);
+            binaryTree.Root.LeftChild.LeftChild.RightChild = new Node(30);
 
-            binaryTree.root.rightChild.leftChild.leftChild = new Node(60);
-
-            binaryTree.InOrderTraversal();
+            binaryTree.Root.RightChild.LeftChild.LeftChild = new Node(60);
+            return binaryTree;
         }
     }
 }

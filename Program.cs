@@ -1,12 +1,13 @@
 ﻿namespace DataStructuresAndAlgorithms
 {
-    using DataStructuresAndAlgorithms.BinaryTrees;
+    using BinaryTrees;
 
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            BinaryTree.RunInOrderTraversal();
+            BinaryTree binaryTree = BinaryTree.PrepareBinaryTree();
+            binaryTree.StartOrderTraversal();
         }
     }
 }
