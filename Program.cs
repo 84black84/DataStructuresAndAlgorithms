@@ -1,12 +1,12 @@
 ﻿namespace DataStructuresAndAlgorithms
 {
-    using System;
+    using DataStructuresAndAlgorithms.BinaryTrees;
 
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!!!");
+            BinaryTree.RunInOrderTraversal();
         }
     }
 }
