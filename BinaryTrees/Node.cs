@@ -9,7 +9,6 @@
         public Node(int value)
         {
             this.Value = value;
-
             LeftChild = null;
             RightChild = null;
         }

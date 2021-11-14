@@ -7,7 +7,7 @@
         static void Main()
         {
             BinaryTree binaryTree = BinaryTree.PrepareBinaryTree();
-            binaryTree.StartOrderTraversal();
+            binaryTree.StartPostOrderTraversal();
         }
     }
 }
