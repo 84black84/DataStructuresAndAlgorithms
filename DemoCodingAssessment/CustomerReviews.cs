@@ -1,4 +1,4 @@
-﻿namespace DataStructuresAndAlgorithms.AmazonCodingAssessment
+﻿namespace DataStructuresAndAlgorithms.DemoCodingAssessment
 {
     using System;
     using System.Collections.Generic;
