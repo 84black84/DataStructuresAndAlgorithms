@@ -19,19 +19,18 @@
         {
             int matched = 0;
             int startPosition = 0;
-
+            string[] shoppingCartArray = shoppingCart.ToArray();
+            int shoppingCartLength = shoppingCart.Count;
             foreach (string item in codeList)
             {
                 string[] listOfCodesItem = item.Split(" ");
                 int listOfCodesItemLength = listOfCodesItem.Length;
+                int finishPosition = startPosition + listOfCodesItemLength - 1;
                 int jokerStringPosition = GetJokerStringPosition(listOfCodesItem, listOfCodesItemLength);
-                int codeListItemLength = listOfCodesItem.Length;
                 bool found = false;
-                int finishPosition = startPosition + codeListItemLength - 1;
-                while (!found && finishPosition<shoppingCart.Count)
+                while (!found && finishPosition < shoppingCartLength)
                 {
-                    // Recursive solution might be more efficient
-                    string shoppingCartCurrentSelection = GetShoppingCartSelection(shoppingCart.ToArray(), startPosition, finishPosition, startPosition + jokerStringPosition);
+                    string shoppingCartCurrentSelection = this.GetShoppingCartSelection(shoppingCartArray, startPosition, finishPosition, startPosition + jokerStringPosition);
                     if (shoppingCartCurrentSelection.ToLower() != item.ToLower())
                     {
                         startPosition++;
@@ -67,18 +66,26 @@
             return jokerStringPosition;
         }
 
+        /// <summary>
+        /// Recursive solution might be more efficient
+        /// </summary>
+        /// <param name="shoppingCart"></param>
+        /// <param name="startPosition"></param>
+        /// <param name="finishPosition"></param>
+        /// <param name="jokerStringPosition"></param>
+        /// <returns></returns>
         private string GetShoppingCartSelection(string[] shoppingCart, int startPosition, int finishPosition, int jokerStringPosition)
         {
             string shoppingCartSelection = "";
             for (int i = startPosition; i <= finishPosition; i++)
             {
-                if (i == finishPosition)
+                shoppingCartSelection += i == jokerStringPosition 
+                    ? JokerString 
+                    : shoppingCart[i];
+                
+                if (i != finishPosition)
                 {
-                    shoppingCartSelection += jokerStringPosition == i ? JokerString : shoppingCart[i];
-                }
-                else
-                {
-                    shoppingCartSelection += (jokerStringPosition == i ? JokerString : shoppingCart[i]) + " ";
+                    shoppingCartSelection += " ";
                 }
             }
 
