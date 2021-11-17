@@ -18,9 +18,9 @@
             }
 
             string[] repositoryArray = repository.ToArray();
-
+            int repositoryArrayLength = repositoryArray.Length;
             int counter = 0;
-            for (int i = 0; i < repositoryArray.Length; i++)
+            for (int i = 0; i < repositoryArrayLength; i++)
             {
                 string repositoryItem = repositoryArray[i];
                 if (customerQuery.Length == repositoryItem.Length)
